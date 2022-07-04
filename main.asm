@@ -43,9 +43,14 @@ EN1:			SUB.B	#'A',R7;
 				JZ		ATUALIZACAO;
 CONTINUACAO:	MOV.B	RT1(R7),R7
 				MOV.B	RF1(R7),R7
+				MOV		#RT1,R8;
+				CALL	#RTINV;
 				ADD.B	#'A',R7;
 				MOV.B	R7,0(R6);
+				INC		R5;
 				JMP		ENIGMA3;
+				
+RTINV:
 
 ATUALIZACAO:	SUB.B		#'F',R7;
 				;ADD.B		CONF1,R7
